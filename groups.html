@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contacts by Category</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 40px; 
+      background-color: #f9f9f9; 
+    }
+    .tab-button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      cursor: pointer;
+      background-color: #eee;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+    .tab-button:hover { 
+      background-color: #ddd; 
+    }
+    .tab-content { 
+      display: none; 
+      margin-top: 20px; 
+    }
+    .tab-content ul { 
+      list-style-type: none; 
+      padding: 0; 
+    }
+    .tab-content li {
+      margin-bottom: 5px;
+      padding: 8px 0;
+      position: relative;
+    }
+    .contact-name {
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .contact-name:hover {
+      background-color: #f0f0f0;
+    }
+    .active { 
+      display: block; 
+    }
+    .dropdown {
+      display: none;
+      position: relative;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-top: 5px;
+      z-index: 10;
+      width: fit-content;
+    }
+    .dropdown.show {
+      display: block;
+      animation: fadeIn 0.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .dropdown a {
+      display: block;
+      margin: 4px 0;
+      padding: 2px 0;
+      text-decoration: none;
+      color: #0073e6;
+    }
+    .dropdown a:hover { 
+      text-decoration: underline; 
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Contacts Dashboard</h1>
+  <button class="tab-button" onclick="toggleTab('media')">Media</button>
+  <button class="tab-button" onclick="toggleTab('advisory')">Advisory</button>
+  <button class="tab-button" onclick="toggleTab('partnership')">Partnership</button>
+
+  <div id="media" class="tab-content">
+    <h2>Media</h2>
+    <ul>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">20VC (Harry Stebbings)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/harrystebbings/" target="_blank">LinkedIn</a>
+          <div class="description">Harry Stebbings is a British venture capitalist and media entrepreneur best known as the founder of 20VC, a leading podcast in the venture capital space with over 100 million downloads across 190 countries. Launched in 2015, the podcast features interviews with prominent investors and startup founders, including guests from Sequoia, Founders Fund, Y Combinator, and Benchmark. In 2020, Stebbings transitioned from podcasting to venture investing by launching the 20VC Fund. As of 2024, the fund manages over $600 million in assets, with investments in companies like Tripledot Studios, Pachama, and Linktree. Stebbings has been recognized for his contributions to the industry, including being named to Forbes' 30 Under 30 Europe list in the finance category.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">11FS</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/company/11-fs/about/" target="_blank">LinkedIn</a>
+          <a href="https://content.11fs.com/" target="_blank">Website</a>
+          <div class= "description">11:FS is a London-based consultancy specializing in digital transformation within the financial services sector. Founded in 2016, the company focuses on building next-generation propositions for challengers in the industry, including existing firms aiming to innovate and start-ups looking to scale. Their services encompass transformation and advisory (11:FS Ventures), consumer and market research (11:FS Research), industry benchmarking (11:FS Pulse), core banking capabilities (11:FS Foundry), and media content production (11:FS Media). With a team of over 150 professionals, 11:FS has delivered projects across more than 32 countries, analyzing over 15,000 user journeys through their Pulse research platform. The company is co led by Co CEOs David Brear and Nasir Ahmad, and has been recognized for its innovative approach to digital financial services.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Guy Raz</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/guyrazpodcasts/" target="_blank">LinkedIn</a>
+          <a href="https://podcasts.apple.com/us/podcast/how-i-built-this-with-guy-raz/id1150510297" target="_blank">Podcast</a>
+          <div class="description">Guy Raz is an award winning journalist, entrepreneur, and the creator and host of the acclaimed podcast *How I Built This*, where he interviews the world’s top founders and innovators. He’s known for making complex entrepreneurial journeys relatable and inspiring to millions of listeners. With deep storytelling skills and a massive network in the startup world, he’s a powerful connector and thought leader in business and media. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Graham Stephan</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/grahamstephan/" target="_blank">LinkedIn</a>
+          <a href="https://www.grahamstephan.com/" target="_blank">Website</a>
+          <a href="https://www.youtube.com/@GrahamStephan/videos" target="_blank">YouTube</a>
+          <div class="description">Graham Stephan is a real estate investor, entrepreneur, and prominent YouTube personality known for his engaging content on personal finance, real estate investing, and financial independence. He began his real estate career at 18, eventually selling over $125 million in residential properties. Stephan gained widespread recognition through his YouTube channel, where he shares insights on frugality, investing, and wealth building strategies, amassing millions of subscribers. He has also been featured on shows like *Selling Sunset* and *Million Dollar Listing Los Angeles*, and is associated with The Oppenheim Group. Currently residing in Las Vegas, Stephan continues to influence a broad audience through his educational content and entrepreneurial ventures.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Ryan Serhant</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/ryanserhant/" target="_blank">LinkedIn</a>
+          <div class="description">Ryan Serhant is a renowned real estate broker, entrepreneur, and media personality. He is the founder and ceo of SERHANT, a multidimensional real estate brokerage that integrates media, education, and technology to revolutionize property sales. Serhant gained prominence through Bravo's "Million Dollar Listing New York" and currently stars in Netflix's "Owning Manhattan," which showcases his firm's dynamic approach to luxury real estate. With nearly $10 billion in sales, he has represented clients in record-breaking deals across New York and South Florida, including the most expensive home ever sold in Florida for just under $140 million. Beyond real estate, Serhant is a bestselling author of three books: "Sell It Like Serhant," "Big Money Energy," and "Brand It Like Serhant." He also hosts the "Big Money Energy" podcast and leads SERHANT. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Barbara Corcoran</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/barbaracorcoran/" target="_blank">LinkedIn</a>
+          <div class="description">Barbara Corcoran is a renowned American businesswoman, investor, author, and television personality. She founded The Corcoran Group, a leading real estate brokerage in New York City, which she sold in 2001 for $66 million. Corcoran gained national fame as one of the original "Sharks" on ABC's Shark Tank, where she has invested in over 100 businesses. Beyond television, she is a motivational speaker, hosts the podcast *Business Unusual with Barbara Corcoran*, and has authored several books, including Shark Tales: How I Turned $1,000 into a Billion Dollar Business. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Fredrik Eklund</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/fredrik-eklund-30aa44a9/" target="_blank">LinkedIn</a>
+          <div class="description">Fredrik Eklund is a Swedish born real estate broker, television personality, and author, best known for co founding the Eklund Gomes Team at Douglas Elliman. He gained widespread recognition through Bravo's reality series Million Dollar Listing New York, where he showcased his expertise in luxury real estate. Over his career, Eklund has closed over $10 billion in residential sales, representing high-profile clients such as Sarah Jessica Parker and John Legend. In addition to his real estate accomplishments, he authored the bestselling book The Sell: The Secrets of Selling Anything to Anyone, offering insights into effective sales strategies. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Rocio Fabbro (Bloomberg)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/rociofabbro" target="_blank">LinkedIn</a>
+          <div class="description">Rocio Fabbro is a Breaking News Editor at Bloomberg, specializing in finance, markets, and technology. She has previously reported for Quartz, The Messenger, Foreign Policy, CNBC, and Salon, with a focus on topics such as cryptocurrency, AI, and real estate. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Juniper Research</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/company/juniper-research/about/" target="_blank">LinkedIn</a>
+          <div class="description">Juniper Research is a leading market intelligence firm specializing in fintech, telecommunications, and IoT sectors. Established in 2001 and headquartered in Basingstoke, UK, the company offers in-depth market sizing, forecasting, competitive analysis, and strategic assessments to assist organizations in navigating the digital world.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Georgia Weston (101 Blockchains)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/georgia-weston/" target="_blank">LinkedIn</a>
+          <div class="description">Georgia Weston is a content writer and customer relationship specialist at 101 Blockchains, where she contributes insightful articles on blockchain technology, NFTs, Fintech in general, and Web3 innovations</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Nik Milanovic</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/nikm/" target="_blank">LinkedIn</a>
+          <a href="https://www.thisweekinfintech.com/" target="_blank">Website</a>
+          <div class="description">Nik Milanović is the founder of This Week in Fintech, a leading newsletter and community platform that curates global fintech news and insights. He is also a General Partner at The Fintech Fund, an early stage venture capital firm investing in fintech startups worldwide.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Mary Ann Azevedo</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/maryannazevedo/" target="_blank">LinkedIn</a>
+          <a href="https://techcrunch.com/author/mary-ann-azevedo/" target="_blank">Website</a>
+          <div class="description">Mary Ann Azevedo is a senior fintech reporter at TechCrunch with over two decades of experience covering business, startups, and venture capital. She has written for publications such as FinLedger, Crunchbase News, Crain, Forbes, and the Silicon Valley Business Journal.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Melia Russell</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/meliarussell/" target="_blank">LinkedIn</a>
+          <div class="description">Melia Russell is a senior tech correspondent at Business Insider, specializing in how artificial intelligence is transforming legal and professional services. With a background in covering startups, venture capital, and tech culture, she provides in-depth reporting on the evolving intersection of technology and the legal industry</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Bianca Chan</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/bschan/" target="_blank">LinkedIn</a>
+          <div class="description">Bianca Chan is a senior finance reporter at Business Insider, specializing in the intersection of finance and technology. Her reporting delves into how major financial institutions and fintech startups are leveraging technologies such as AI, cloud computing, and blockchain to transform the financial services landscape. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Jeff Kauflin</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/jeffkauflin/" target="_blank">LinkedIn</a>
+          <div class="description">Jeff Kauflin  leads fintech coverage at Forbes. Edits annual Fintech 50 list and 30 Under 30 list for fintech, and writes frequently about leadership and corporate diversity. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Kia Kokalitcheva</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/kiakokalitcheva/" target="_blank">LinkedIn</a>
+          <div class="description">​ Kia Kokalitcheva is a senior editor covering venture capital at PitchBook, where she reports on startup funding trends, major deals, and the evolving tech landscape. Previously, she was a senior reporter at Axios, co authoring the widely read "Pro Rata" newsletter focused on business and technology news .</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="advisory" class="tab-content">
+    <h2>Advisory</h2>
+    <ul>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Michael Arougheti</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/michael-arougheti/" target="_blank">LinkedIn</a>
+          <a href="https://www.aresmgmt.com/" target="_blank">Website</a>
+          <div class="description">Michael Arougheti is the Co Founder, Chief Executive Officer, and President of Ares Management Corporation a leading global alternative investment firm managing over $400 billion in assets. He also serves as Co Chairman of Ares Capital Corporation and Ares Acquisition Corporation II. Before co-founding Ares in 1997, Arougheti held senior roles at RBC Capital Partners, Indosuez Capital, and Kidder, Peabody & Co, focusing on leveraged finance and private equity. Beyond his corporate responsibilities, Arougheti is actively involved in philanthropy, serving on the boards of Operation HOPE and the PATH Organization Leadership Council.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Brian Sarath (Cushman & Wakefield)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/briansarath/" target="_blank">LinkedIn</a>
+          <div class="description">Brian Sarath is an Executive Director at Cushman & Wakefield, leading the Queens Private Client Advisory Group. With over two decades of experience in New York City's middle-market investment sales, he specializes in transactions involving development sites, joint ventures, ground leases, and note sales, particularly throughout the borough of Queens. To date, Sarath and his team have executed over 330 transactions, totaling more than $1.5 billion in sales</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Adam Kaufman (Premier Sotheby's)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/adam-kaufman-671a7a3/" target="_blank">LinkedIn</a>
+          <div class="description">Adam S. Kaufman is a distinguished real estate professional with a career spanning over three decades. He currently serves as the Senior Vice President of New Development at Premier Sotheby’s International Realty, where he oversees sales and marketing for the company's development projects in Florida and North Carolina. He has since achieved over $2 billion in total lifetime sales, completing more than 3,000 transactions. He is recognized as Ohio's top real estate agent and has been the company top producer at Howard Hanna Real Estate Services from 2002 through 2023</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Robert Dienes</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/robert-dienes-7b62a23/" target="_blank">LinkedIn</a>
+          <div class="description">Robert Dines has over 35 years of experience, he has successfully guided attorneys, executors, trustees, and families through real estate transactions involving townhouses, condominiums, cooperatives, commercial buildings, and private homes. Dienes specializes in estate sales and has a strong track record of assisting both domestic and international clients. His expertise also extends to collaborating with developers on pre development planning, marketing, and sales strategies. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Mary Bates (Meketa)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/mary-bates-1601673/" target="_blank">LinkedIn</a>
+          <div class="description">​Mary Bates, Managing Principal and Private Markets Consultant at Meketa Investment Group, brings over two decades of experience in private credit and alternative investments. Her background includes roles in asset management, investment banking, and consulting, with a focus on private debt strategies. Her network within the investment community could facilitate connections with potential investors or partners interested in innovative approaches to real estate.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Rich Randall (IFM Investors)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/richard-randall-73576150/" target="_blank">LinkedIn</a>
+          <div class="description">Rich Randall is responsible for the creation and management of IFM Investors’ debt investments strategies and portfolios, and for the debt investments team globally. He also heads IFM Investors’ North American debt investment business.
+            Rich has more than 20 years of experience in originating, analyzing, structuring, and arranging debt facilities for large infrastructure projects. His experience includes fixed and floating rate debt instruments across a broad credit and industry spectrum, and he has a specialty in the US energy sector, which is the primary source of infrastructure debt issuance in North America.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Wendy Craft (Elle Family Office)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/wendy-craft-7281176/" target="_blank">LinkedIn</a>
+          <div class="description"> Wendy Craft is an executive in the family office sector, currently serving as the CEO of Elle Family Office, which manages the Lazarian family's holdings, including real estate, cars, and various other investments. With over two decades of experience, she has held prominent roles such as Chief of Staff at Fulcrum Equities and has been instrumental in structuring and managing multi generational wealth strategies.​</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Ronen Schwartzman (Ten Capital Advisors)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/ronen-schwartzman-ab0b8/" target="_blank">LinkedIn</a>
+          <div class="description">Ronen Schwartzman is an investment professional with over 25 years of experience in capital markets, specializing in alternative assets such as hedge funds, private credit, private equity, and real estate. He is the Founder and CEO of Ten Capital Advisors, a New York firm providing financial consulting and outsourced Chief Investment Officer services to families. Additionally, he serves as the Chief Investment Officer at the Cooper Family Office, where he oversees investment strategies across various asset classes. Schwartzman's extensive experience in alternative investments and his leadership roles in family offices could provide valuable insights and potential collaboration opportunities.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Brad Gerstner (Altimeter)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/bradgerstner/" target="_blank">LinkedIn</a>
+          <div class="description">Brad Gerstner is the founder and CEO of Altimeter, a leading technology investment firm based in Silicon Valley that manages public and VC investment portfolios. Brad has worked in technology for 25 years - as a securities lawyer; a founding principal at the VC firm General Catalyst; and a three time Founder where he raised significant venture funding and sold all three businesses (to IAC, Google and Marchex); and as a Portfolio Manager at PAR Capital. His experience in venture capital and growth equity investments, particularly in technology and real estate sectors, could offer strategic perspectives on scaling the platform and attracting venture funding.​
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Robyn Grew (Man Group)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/robyn-grew-ab031023/" target="_blank">LinkedIn</a>
+          <div class="description">Robyn Grew is the CEO of Man Group, one of the largest alternative investment firms in the world. She has deep experience leading businesses that focus on investments outside of traditional stocks and bonds, like real estate and private credit. With her background, she would be very useful by helping shape the product in a way that appeals to big institutional investors. She could also help find and attract the right clients, therefore boosting the companies credibility.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Jeff Wilson (Pereview)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/jeff-wilson-978613/" target="_blank">LinkedIn</a>
+          <div class="description"> Jeff Wilson is the founder and CEO of Pereview, the most flexible, AI-powered real estate asset management solution for managing both equity and debt in one unified platform. It empowers portfolio and asset managers to optimize performance, visualize risk, and automate operations. He established Pereview in 2015 to address the industry’s most profound front office data challenges through modernization and innovation. He’s significant because he’s built something directly aligned with this space, bringing both domain expertise and operational credibility. His background at Goldman Sachs’ real estate arm also adds weight to any conversations around institutional debt solutions.
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Paul Kevener (REstack)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/paulkevener/" target="_blank">LinkedIn</a>
+          <div class="description">Paul Kevener is Co-Founder & CEO, REstack, this software REstack provides financial and operational infrastructure to real estate managers and investors. Paul would understand how to scale platforms supporting real estate asset backed deals and could be a partner or advisor in building backend systems or integrations.
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Jim Dunbar (Real Estate Lending)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/james-e-dunbar-9852a41/" target="_blank">LinkedIn</a>
+          <div class="description">Jim Dunbar is a partner and Head of Real Estate Lending. He oversees commercial real estate debt strategies, including loan originations and loan trading. He has also led investments in real estate operating companies, hospitality assets and non-performing CRE loans.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Brett Hickey (Star Mountain Capital)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/bhickey/" target="_blank">LinkedIn</a>
+          <div class="description">Brett Hickey is the founder and CEO of Star Mountain Capital, a multi billion dollar specialized private investment firm focused on providing debt and equity capital to small and medium sized businesses in the U.S. lower middle market. With over 20 years of private investing and investment banking experience, his firm uses a data driven, relationship based approach to back growing businesses, which aligns closely with real estate backed lending strategies. Brett’s background in private credit and specialized asset based finance could make him relevant.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="partnership" class="tab-content">
+    <h2>Partnership</h2>
+    <ul>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Andreessen Horowitz (a16z)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/company/a16z/about/" target="_blank">LinkedIn</a>
+          <div class="description">Andreessen Horowitz, commonly known as a16z, is a prominent venture capital firm based in Menlo Park, California. Founded in 2009 by Marc Andreessen and Ben Horowitz, the firm manages approximately $45 billion in assets and invests across various stages, from seed to growth-stage companies. a16z's investment portfolio spans multiple sectors, including artificial intelligence, bio and healthcare, consumer, crypto, enterprise, fintech, games, and infrastructure. The firm is known for its active involvement in supporting entrepreneurs, offering resources such as talent acquisition, marketing, and technical expertise to its portfolio companies. a16z has backed notable companies like Airbnb, Coinbase, Facebook, GitHub, Instagram, Lyft, Pinterest, Slack, and Twitter. In recent developments, a16z is reportedly seeking to raise a $20 billion fund focused on growth stage artificial intelligence investments in U.S. companies, aiming to tap into the strong global investor demand for American AI startups. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Grant Cardone</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/grantcardone/" target="_blank">LinkedIn</a>
+          <div class="description">Grant Cardone is a real estate investor, sales trainer, and motivational speaker. He is the founder of Cardone Capital, a firm managing over \$4 billion in multifamily properties. Known for his “10X” philosophy, he teaches business growth and financial freedom.git add index.html</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Robert Reffkin (Compass)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/robertreffkin/" target="_blank">LinkedIn</a>
+          <div class="description">Robert Reffkin is the Founder and CEO of Compass, a technology-driven real estate brokerage he co-founded in 2012. Under his leadership, Compass has grown to become the #1 real estate brokerage by sales volume in the United States, achieving over $500 billion in real estate sales. Reffkin's professional background includes roles at McKinsey & Company, Lazard, and Goldman Sachs, as well as serving as a White House Fellow.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Jillian Faulls (The Corcoran Group)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/jillianfaulls/" target="_blank">LinkedIn</a>
+          <div class="description">Jillian Faulls is a Licensed Associate Real Estate Broker at The Corcoran Group, based in New York City. With over 13 years of experience, she has been involved in more than 35 new development and conversion projects, serving in roles such as Sales Director and Leasing Director. Her career includes closing over $700 million in transactions, representing clients in high-stakes deals across emerging NYC markets.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Zachary Streit (Priority Capital Advisory)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/zack-streit/" target="_blank">LinkedIn</a>
+          <div class="description">Zachary Streit is the Founder and President of Priority Capital Advisory, a strategic equity and debt capital advisory firm. With over 20 years of experience in commercial real estate investment and advisory, he has executed more than $5 billion in financings across various property types</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">James E. Robertson Jr. (JLL)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/jameserobertson/" target="_blank">LinkedIn</a>
+          <div class="description">James E. Robertson Jr. is a Senior Vice President at JLL (Jones Lang LaSalle) in Houston, Texas. He specializes in office and industrial real estate, providing consulting services, lease negotiations, and build-to-suit strategies for leading users across the nation. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Petra Flynn (Cushman & Wakefield)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/petra-flynn-22b204173/" target="_blank">LinkedIn</a>
+          <div class="description">Petra Flynn is a Senior Associate at Cushman & Wakefield in Boston, Massachusetts. She specializes in commercial real estate leasing and advisory services, focusing on office and industrial properties throughout the Greater Boston area. Petra has been instrumental in facilitating significant lease transactions, including securing 275,800 square feet of leases.</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">An Nguyen (Cushman & Wakefield)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/an-dieu-nguyen/" target="_blank">LinkedIn</a>
+          <div class="description">An Nguyen is a Capital Markets Analyst at Cushman & Wakefield in Boston, Massachusetts. She joined the firm through its Associate Broker Program, gaining hands on experience in commercial real estate. An is an alumna of the University of Massachusetts Amherst and has been actively involved with organizations like Bottom Line and Project Destined, which support professional development in underrepresented communities. </div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Brian Dally (Groundfloor)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/bdally" target="_blank">LinkedIn</a>
+          <div class="description">Brian Dally is the Cofounder and CEO of Groundfloor, a pioneering real estate investing platform that opens up private real estate debt investments to non accredited investors. His work directly addresses the challenge of democratizing access to real estate debt markets, making him a valuable connection</div>
+        </div>
+      </li>
+      <li>
+        <div class="contact-name" onclick="toggleDropdown(this)">Arvind Mohan (Kiavi)</div>
+        <div class="dropdown">
+          <a href="https://www.linkedin.com/in/arv84/" target="_blank">LinkedIn</a>
+          <div class="description">Creator of Kiavi one of the nation's largest private lenders to residential real estate investors (“REIs”). Kiavi harnesses the power of data & technology to offer REIs a simpler, more reliable, and faster way to access the capital they need to scale their businesses. Formerly known as LendingHome, Kiavi is committed to helping its customers revitalize the approximately $25 trillion of aged U.S. housing stock to provide move in ready homes and rental housing for millions of Americans across the country.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    let currentTab = null;
+    let currentDropdown = null;
+
+    function toggleTab(id) {
+      const content = document.getElementById(id);
+      if (currentTab === id) {
+        content.classList.remove('active');
+        currentTab = null;
+      } else {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        content.classList.add('active');
+        currentTab = id;
+      }
+      // Close any open dropdown when switching tabs
+      if (currentDropdown) {
+        currentDropdown.classList.remove('show');
+        currentDropdown = null;
+      }
+    }
+
+    function toggleDropdown(element) {
+      const dropdown = element.nextElementSibling;
+      
+      // Close any currently open dropdown
+      if (currentDropdown && currentDropdown !== dropdown) {
+        currentDropdown.classList.remove('show');
+      }
+      
+      // Toggle the clicked dropdown
+      dropdown.classList.toggle('show');
+      currentDropdown = dropdown.classList.contains('show') ? dropdown : null;
+    }
+
+    // Close dropdown when clicking anywhere else
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.contact-name') && !event.target.closest('.dropdown')) {
+        if (currentDropdown) {
+          currentDropdown.classList.remove('show');
+          currentDropdown = null;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
